@@ -9,6 +9,9 @@ name = "libslang"
 path = "src/libslang/lib.rs"
 
 [dependencies]
-lalrpop = "0.19.3"
+lalrpop-util = { version = "0.19.3", default-features = false }
 logos = "0.11.4"
 thiserror = "1.0.23"
+
+[build-dependencies]
+lalrpop = { version = "0.19.3", default-features = false }
