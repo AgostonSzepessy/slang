@@ -1,0 +1,65 @@
+use crate::lexer::{Token, Lexer};
+use crate::ast;
+
+grammar;
+
+extern {
+    type Location = usize;
+    type Error = LexingError;
+
+    enum Token {
+        ":" => Token::Colon,
+        "," => Token::Comma,
+        "." => Token::Dot,
+        "{" => Token::LBrace,
+        "}" => Token::RBrace,
+        "(" => Token::LParen,
+        ")" => Token::RParen,
+        "[" => Token::LBracket,
+        "]" => Token::RBracket,
+
+        ";" => Token::Semicolon,
+        "!" => Token::Bang,
+        "!=" => Token::BangEq,
+        "=" => Token::Eq,
+        "==" => Token::EqEq,
+        ">" => Token::Gt,
+        ">=" => Token::Gte,
+        "<" => Token::Lt,
+        "<=" => Token::Lte,
+        "+" => Token::Plus,
+        "++" => Token::PlusPlus,
+        "+=" => Token::PlusEq,
+        "-" => Token::Minus,
+        "--" => Token::MinusMinus,
+        "-=" => Token::MinusEq,
+        "/" => Token::Slash,
+        "/=" => Token::SlashEq,
+        "*" => Token::Star,
+        "*=" => Token::StarEq,
+
+        "and" => Token::And,
+        "break" => Token::Break,
+        "clone" => Token::Clone,
+        "const" => Token::Const,
+        "continue" => Token::Continue,
+        "else" => Token::Else,
+        "none" => Token::None,
+        "false" => Token::False,
+        "fn" => Token::Fn,
+        "for" => Token::For,
+        "if" => Token::If,
+        "let" => Token::Let,
+        "or" => Token::Or,
+        "print" => Token::Print,
+        "ret" => Token::Ret,
+        "self" => Token::Slf,
+        "true" => Token::True,
+        "while" => Token::While,
+
+        "identifier" => Token::Identifier(<String>),
+        "int" => Token::Int(<i64>),
+        "float" => Token::Float(<f64>),
+        "string" => Token::String(<String>),
+    }
+}
